@@ -1,10 +1,12 @@
-"use client"
-import { z } from "zod"
+"use client";
+
+import { z } from "zod";
+import Link from "next/link";
 import Image from "next/image"
 import { toast } from "sonner";
 import { auth } from "@/firebase/client";
 import { useForm } from "react-hook-form"
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
@@ -124,13 +126,13 @@ const AuthForm = ({ type } : { type: FormType }) => {
 
                 <p className="text-center">
                     {isSignIn ? 'No account yet?' : 'Have an account already?'}
-                    <a href={!isSignIn ? '/sign-in' : '/sign-up'} className="font-bold text-user-primary ml-1">
+                    <Link href={!isSignIn ? '/sign-in' : '/sign-up'} className="font-bold text-user-primary ml-1">
                         {!isSignIn ? 'Sign In' : 'Sign Up'}
-                    </a>
+                    </Link>
                 </p>
             </div>
         </div>
     )
 }
 
-export default AuthForm
+export default AuthForm;

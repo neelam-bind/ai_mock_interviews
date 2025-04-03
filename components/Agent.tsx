@@ -7,6 +7,7 @@ import {useRouter} from "next/navigation";
 import {cn} from "@/lib/utils";
 import { vapi } from '@/lib/vapi.sdk'
 import {interviewer} from "@/constants";
+import {createFeedback} from "@/lib/actions/general.action";
 
 
 enum CallStatus {
@@ -64,10 +65,12 @@ const Agent = ({ userName, userId, type, interviewId, questions}:AgentProps) => 
 
     const handleGenerateFeedback = async (messages: SavedMessage[]) => {
         console.log('Generate feedback here.');
-        const { success , id }= {
-            success: true,
-            id: 'feedback-id'
-        }
+        const { success , feedbackId: id}= await createFeedback({
+            interviewId: interviewId!,
+            userId: userId!,
+            transcript :messages
+        });
+
 
         if(success && id ){
             router.push(`/interview/${interviewId}/feedback`);
@@ -97,8 +100,8 @@ const Agent = ({ userName, userId, type, interviewId, questions}:AgentProps) => 
             variableValues :{
                 username : userName,
                 userid : userId,
-            }
-        })
+            },
+        });
         }else{
             let formattedQuestions = '';
             if(questions){
@@ -111,10 +114,7 @@ const Agent = ({ userName, userId, type, interviewId, questions}:AgentProps) => 
                     questions: formattedQuestions,
                 },
             });
-
-
         }
-
     }
 
     const handleDisconnect  = async () => {
@@ -157,14 +157,14 @@ const Agent = ({ userName, userId, type, interviewId, questions}:AgentProps) => 
 
                 <div className="w-full flex justify-center">
                     { callStatus !== 'ACTIVE' ? (
-                        <button className ="relative btn-call" onClick={handleCall}>
+                        <button className ="relative btn-call" onClick={() => handleCall()}>
                             <span className ={cn('absolute animate-ping rounded-full opacity-75' ,callStatus!=='CONNECTING' && 'hidden')}  />
                             <span>
                                 {isCallInactiveOrFinished ? 'Call' : '. . .'}
                             </span>
                         </button>
                     ) : (
-                        <button className="btn-disconnect" onClick={handleDisconnect}>
+                        <button className="btn-disconnect" onClick={() => handleDisconnect()}>
                             End
                         </button>
                     ) }

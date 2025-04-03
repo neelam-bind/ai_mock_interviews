@@ -1,13 +1,22 @@
 import dayjs from 'dayjs';
 import React from 'react'
 import Image from "next/image";
-import {getRandomInterviewCover} from "@/lib/utils";
-import {Button} from "@/components/ui/button";
-import Link from "next/link";
+
+import { Button } from "@/components/ui/button";
 import DisplayTechIcons from "@/components/DisplayTechIcons";
 
-const InterviewCard = ({id, userId, role,type, techstack, createdAt} :InterviewCardProps) => {
-    const feedback = null as Feedback | null;
+import { getRandomInterviewCover } from "@/lib/utils";
+import Link from "next/link";
+import {getFeedbackByInterviewId} from "@/lib/actions/general.action";
+
+
+const InterviewCard = async ({id, userId, role, type, techstack, createdAt,}: InterviewCardProps) => {
+    const feedback = userId && id ? await getFeedbackByInterviewId({
+                interviewId:id,
+                userId,
+            })
+            : null;
+
     const normalizedType = /mix/gi.test(type) ? 'Mixed' :type ;
     const formattedDate =dayjs(feedback?.createdAt || createdAt || Date.now()).format('MMM D, YYYY');
 
@@ -46,10 +55,10 @@ const InterviewCard = ({id, userId, role,type, techstack, createdAt} :InterviewC
 
                     <Button className="btn-primary">
                         <Link href={feedback
-                            ? `/interview/interview/${id}/feedback`
+                            ? `/interview/${id}/feedback`
                             :`/interview/${id}`
                         }>
-                            {feedback ? 'Check Feedback' : 'View Feedback'}
+                            {feedback ? 'Check Feedback' : 'View Interview'}
                         </Link>
                     </Button>
                 </div>
