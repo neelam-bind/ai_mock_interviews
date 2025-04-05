@@ -25,7 +25,7 @@ export async function getLatestInterviews(params: GetLatestInterviewsParams): Pr
         .collection('interviews')
         .orderBy('createdAt', 'desc')
         .where('finalized', '==', true)
-        .where(userId, '!=', userId)
+        .where("userId", '!=', userId)
         .limit(limit)
         .get();
 
