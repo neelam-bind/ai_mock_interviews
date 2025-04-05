@@ -13,11 +13,12 @@ const initFirebaseAdmin = () => {
             })
         })
     }
+    const db = getFirestore();
+    db.settings({ ignoreUndefinedProperties: true });
 
     return {
         auth:getAuth(),
         db:getFirestore()
-
     }
 }
 
