@@ -1,24 +1,28 @@
-import React from 'react'
-import {getCurrentUser} from "@/lib/actions/auth.action";
-import {getFeedbackByInterviewId, getInterviewById} from "@/lib/actions/general.action";
-import {redirect} from "next/navigation";
-import {Button} from "@/components/ui/button";
-import Image from "next/image";
-import Link from "next/link";
 import dayjs from "dayjs";
+import Link from "next/link";
+import Image from "next/image";
+import { redirect } from "next/navigation";
 
-const Page =async ( { params } : RouteParams ) => {
+import {
+    getFeedbackByInterviewId,
+    getInterviewById,
+} from "@/lib/actions/general.action";
+import { Button } from "@/components/ui/button";
+import { getCurrentUser } from "@/lib/actions/auth.action";
+
+
+const Feedback = async ({ params }: RouteParams) => {
     const { id } = await params;
     const user = await getCurrentUser();
 
     const interview = await getInterviewById(id);
-    if(!interview) redirect('/');
+    if (!interview) redirect("/");
+
     const feedback = await getFeedbackByInterviewId({
         interviewId: id,
         userId: user?.id!,
     });
-    console.log("I am here: ");
-    console.log(feedback);
+
     return (
         <section className="section-feedback">
             <div className="flex flex-row justify-center">
@@ -44,7 +48,7 @@ const Page =async ( { params } : RouteParams ) => {
 
                     {/* Date */}
                     <div className="flex flex-row gap-2">
-                        <Image src="/calendar.svg"  alt="calendar"  width={22} height={22}/>
+                        <Image src="/calendar.svg" width={22} height={22} alt="calendar" />
                         <p>
                             {feedback?.createdAt
                                 ? dayjs(feedback.createdAt).format("MMM D, YYYY h:mm A")
@@ -89,7 +93,20 @@ const Page =async ( { params } : RouteParams ) => {
                 </ul>
             </div>
 
-            <div className="buttons">
+
+
+            {feedback?.totalScore > 10 && (
+                <Link
+                    href={`/interview/${params.id}/certificate`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 underline mt-4 text-center"
+                >
+                    🎓 View Completion Certificate
+                </Link>
+            )}
+
+            <div className="buttons mt-6">
                 <Button className="btn-secondary flex-1">
                     <Link href="/" className="flex w-full justify-center">
                         <p className="text-sm font-semibold text-primary-200 text-center">
@@ -100,7 +117,7 @@ const Page =async ( { params } : RouteParams ) => {
 
                 <Button className="btn-primary flex-1">
                     <Link
-                        href={`/interview/${id}`}
+                        href={`/interview/${params.id}`}
                         className="flex w-full justify-center"
                     >
                         <p className="text-sm font-semibold text-black text-center">
@@ -109,7 +126,10 @@ const Page =async ( { params } : RouteParams ) => {
                     </Link>
                 </Button>
             </div>
+
+
         </section>
-    )
-}
-export default Page
+    );
+};
+
+export default Feedback;
