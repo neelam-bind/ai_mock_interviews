@@ -17,6 +17,7 @@ const Page =async ( { params } : RouteParams ) => {
         interviewId: id,
         userId: user?.id!,
     });
+    console.log("I am here: ");
     console.log(feedback);
     return (
         <section className="section-feedback">
