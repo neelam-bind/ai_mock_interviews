@@ -165,5 +165,5 @@ Pull requests are welcome. If you find a bug, want a feature, or have suggestion
 
 ## 🌐 Live Demo (Optional)
 
-> Coming soon at: [https://prepwise.app](https://prepwise.app)
+> Coming soon at: [ai-mock-interviews-mu.vercel.app](ai-mock-interviews-mu.vercel.app)
 
