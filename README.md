@@ -22,7 +22,7 @@
 ## 🏗️ Tech Stack
 
 | Layer           | Technology Used                    |
-|----------------|-------------------------------------|
+|-----------------|------------------------------------|
 | Frontend        | Next.js / React                    |
 | Realtime Agent  | Vapi Agent                         |
 | Authentication  | Firebase Auth                      |
@@ -79,7 +79,6 @@ NEXT_PUBLIC_VAPI_AGENT_ID=your_vapi_agent_id
 ### 5️⃣ Setup Blockchain
 
 - Deploy a smart contract (Solidity recommended) to your preferred chain
-- Use IPFS (e.g., via Pinata) to store metadata
 - Add blockchain credentials to `.env.local`:
 
 ```env
@@ -158,7 +157,7 @@ Feel free to use, fork, enhance, and build your own AI coaching platforms.
 
 Pull requests are welcome. If you find a bug, want a feature, or have suggestions:
 
-- Open an issue [here](https://github.com/neelam-bind/prepwise/issues)  
+- Open an issue [here](https://github.com/neelam-bind/ai_mock_interviews/issues)  
 - Submit a PR with a meaningful commit message
 
 ---
