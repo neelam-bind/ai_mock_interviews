@@ -163,7 +163,8 @@ Pull requests are welcome. If you find a bug, want a feature, or have suggestion
 
 ---
 
-## 🌐 Live Demo (Optional)
+## 🌐 Live Demo
 
-> Coming soon at: [ai-mock-interviews-mu.vercel.app](ai-mock-interviews-mu.vercel.app)
+> Coming soon at: [🌐 Visit PrepWise Live](https://ai-mock-interviews-mu.vercel.app)
+
 
