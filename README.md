@@ -1,25 +1,25 @@
-# 🚀 PrepWise – Your Personalized AI Interview Coach
+# PrepWise – Your Personalized AI Interview Coach
 
 **PrepWise** is a cutting-edge, AI-powered mock interview platform designed to help users prepare for interviews with personalized questions, real-time AI interaction, and blockchain-secured certification. Built with a focus on personalization, real-time experience, and tamper-proof recognition.
 
 ---
 
-## 🧠 Features
+## Features
 
-- ✅ **Personalized Interview Generation** using AI  
-- 🤖 **Real-time AI Interviewer** powered by Vapi Agent  
-- 🔐 **Firebase Authentication**  
-- ☁️ **Firebase Firestore Integration** to store:
+-  **Personalized Interview Generation** using AI  
+-  **Real-time AI Interviewer** powered by Vapi Agent  
+-  **Firebase Authentication**  
+-  **Firebase Firestore Integration** to store:
   - User details
   - Interview questions
   - Feedback & scores
-- 📜 **Blockchain-Backed Certificate Generation** for interview completion  
-- 🧾 **Tamper-proof Certificates** stored securely on the blockchain  
-- 🖨️ **Downloadable PDF Certificates**  
+-  **Blockchain-Backed Certificate Generation** for interview completion  
+-  **Tamper-proof Certificates** stored securely on the blockchain  
+-  **Downloadable PDF Certificates**  
 
 ---
 
-## 🏗️ Tech Stack
+##  Tech Stack
 
 | Layer           | Technology Used                    |
 |-----------------|------------------------------------|
@@ -33,22 +33,22 @@
 
 ---
 
-## 📦 Installation
+##  Installation
 
-### 1️⃣ Clone the repository
+###  Clone the repository
 
 ```bash
 git clone https://github.com/neelam-bind/ai_mock_interviews
 cd prepwise
 ```
 
-### 2️⃣ Install dependencies
+###  Install dependencies
 
 ```bash
 npm install
 ```
 
-### 3️⃣ Setup Firebase
+###  Setup Firebase
 
 - Go to [Firebase Console](https://console.firebase.google.com/)
 - Create a new project
@@ -65,7 +65,7 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```
 
-### 4️⃣ Configure Vapi Agent
+### Configure Vapi Agent
 
 - Sign up at [Vapi.ai](https://vapi.ai/)
 - Create your agent and get your API key and Agent ID
@@ -76,7 +76,7 @@ NEXT_PUBLIC_VAPI_API_KEY=your_vapi_api_key
 NEXT_PUBLIC_VAPI_AGENT_ID=your_vapi_agent_id
 ```
 
-### 5️⃣ Setup Blockchain
+### Setup Blockchain
 
 - Deploy a smart contract (Solidity recommended) to your preferred chain
 - Add blockchain credentials to `.env.local`:
@@ -89,7 +89,7 @@ BLOCKCHAIN_CONTRACT_ADDRESS=your_contract_address
 
 ---
 
-## 🚀 Usage
+##  Usage
 
 1. **Sign Up / Log In** using Firebase Authentication  
 2. **Take Interview**
@@ -105,7 +105,7 @@ BLOCKCHAIN_CONTRACT_ADDRESS=your_contract_address
 
 ---
 
-## 🔐 Blockchain Certificate Metadata Format
+##  Blockchain Certificate Metadata Format
 
 Example of certificate metadata stored on IPFS and validated via the blockchain:
 
@@ -126,7 +126,7 @@ This data is hashed and stored on-chain for verification and audit.
 
 ---
 
-## ✅ Completion Criteria
+##  Completion Criteria
 
 - Interview completed  
 - Score ≥ 60%  
@@ -136,7 +136,7 @@ This data is hashed and stored on-chain for verification and audit.
 
 ---
 
-## 🛡️ Security & Privacy
+##  Security & Privacy
 
 - Firebase Authentication ensures user identity is secure  
 - Firestore rules protect interview data and personal details  
@@ -145,14 +145,14 @@ This data is hashed and stored on-chain for verification and audit.
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the **MIT License**.  
 Feel free to use, fork, enhance, and build your own AI coaching platforms.
 
 ---
 
-## 🙌 Contribution
+##  Contribution
 
 Pull requests are welcome. If you find a bug, want a feature, or have suggestions:
 
@@ -161,6 +161,6 @@ Pull requests are welcome. If you find a bug, want a feature, or have suggestion
 
 ---
 
-## 🌐 Live Demo
+##  Live Demo
 
 > Coming soon at: [🌐 Visit PrepWise Live](https://ai-mock-interviews-mu.vercel.app)
