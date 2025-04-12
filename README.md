@@ -1,36 +1,169 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 PrepWise – Your Personalized AI Interview Coach
 
-## Getting Started
+**PrepWise** is a cutting-edge, AI-powered mock interview platform designed to help users prepare for interviews with personalized questions, real-time AI interaction, and blockchain-secured certification. Built with a focus on personalization, real-time experience, and tamper-proof recognition.
 
-First, run the development server:
+---
+
+## 🧠 Features
+
+- ✅ **Personalized Interview Generation** using AI  
+- 🤖 **Real-time AI Interviewer** powered by Vapi Agent  
+- 🔐 **Firebase Authentication**  
+- ☁️ **Firebase Firestore Integration** to store:
+  - User details
+  - Interview questions
+  - Feedback & scores
+- 📜 **Blockchain-Backed Certificate Generation** for interview completion  
+- 🧾 **Tamper-proof Certificates** stored securely on the blockchain  
+- 🖨️ **Downloadable PDF Certificates**  
+
+---
+
+## 🏗️ Tech Stack
+
+| Layer           | Technology Used                    |
+|----------------|-------------------------------------|
+| Frontend        | Next.js / React                    |
+| Realtime Agent  | Vapi Agent                         |
+| Authentication  | Firebase Auth                      |
+| Database        | Firebase Firestore                 |
+| Certificate     | Custom Generator + Blockchain Hash |
+| PDF Rendering   | `react-pdf`, `html2pdf.js`         |
+| Blockchain      | IPFS / Smart Contract (Ethereum/Polygon) |
+
+---
+
+## 📦 Installation
+
+### 1️⃣ Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/prepwise.git
+cd prepwise
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3️⃣ Setup Firebase
 
-## Learn More
+- Go to [Firebase Console](https://console.firebase.google.com/)
+- Create a new project
+- Enable Authentication (Email/Password or OAuth)
+- Setup Firestore Database
+- Add your Firebase config to `.env.local`:
 
-To learn more about Next.js, take a look at the following resources:
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4️⃣ Configure Vapi Agent
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Sign up at [Vapi.ai](https://vapi.ai/)
+- Create your agent and get your API key and Agent ID
+- Add the following to `.env.local`:
 
-## Deploy on Vercel
+```env
+NEXT_PUBLIC_VAPI_API_KEY=your_vapi_api_key
+NEXT_PUBLIC_VAPI_AGENT_ID=your_vapi_agent_id
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 5️⃣ Setup Blockchain
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Deploy a smart contract (Solidity recommended) to your preferred chain
+- Use IPFS (e.g., via Pinata) to store metadata
+- Add blockchain credentials to `.env.local`:
+
+```env
+BLOCKCHAIN_RPC_URL=your_rpc_url
+BLOCKCHAIN_PRIVATE_KEY=your_private_key
+BLOCKCHAIN_CONTRACT_ADDRESS=your_contract_address
+```
+
+---
+
+## 🚀 Usage
+
+1. **Sign Up / Log In** using Firebase Authentication  
+2. **Take Interview**
+   - PrepWise generates personalized questions based on the user profile
+   - Vapi Agent conducts a real-time audio interview
+3. **Receive Feedback**
+   - AI evaluates responses
+   - Score and feedback are stored in Firestore
+4. **Earn Certificate**
+   - If the score is ≥ 60%, the user receives a completion certificate
+   - Certificate metadata is stored on IPFS and registered on blockchain
+   - User can download a tamper-proof PDF version
+
+---
+
+
+## 🔐 Blockchain Certificate Metadata Format
+
+Example of certificate metadata stored on IPFS and validated via the blockchain:
+
+```json
+{
+  "certificate_id": "abc123",
+  "recipient": "user_id_or_wallet",
+  "issuer": "PrepWise",
+  "type": "Mock Interview Completion",
+  "score": 78,
+  "date": "2025-04-12",
+  "hash": "QmHash...",
+  "signature": "0xDigitalSignature"
+}
+```
+
+This data is hashed and stored on-chain for verification and audit.
+
+---
+
+## ✅ Completion Criteria
+
+- Interview completed  
+- Score ≥ 60%  
+- Feedback generated  
+- Certificate issued and saved on blockchain  
+- PDF available for download  
+
+---
+
+## 🛡️ Security & Privacy
+
+- Firebase Authentication ensures user identity is secure  
+- Firestore rules protect interview data and personal details  
+- Only hashed metadata stored on blockchain (no sensitive info)  
+- Vapi agent is secured through access tokens and auth headers  
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.  
+Feel free to use, fork, enhance, and build your own AI coaching platforms.
+
+---
+
+## 🙌 Contribution
+
+Pull requests are welcome. If you find a bug, want a feature, or have suggestions:
+
+- Open an issue [here](https://github.com/your-username/prepwise/issues)  
+- Submit a PR with a meaningful commit message
+
+---
+
+## 🌐 Live Demo (Optional)
+
+> Coming soon at: [https://prepwise.app](https://prepwise.app)
+
