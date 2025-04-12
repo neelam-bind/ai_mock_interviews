@@ -29,7 +29,7 @@
 | Database        | Firebase Firestore                 |
 | Certificate     | Custom Generator + Blockchain Hash |
 | PDF Rendering   | `react-pdf`, `html2pdf.js`         |
-| Blockchain      | IPFS / Smart Contract (Ethereum/Polygon) |
+| Blockchain      | Smart Contract (Ethereum)          |
 
 ---
 
@@ -38,7 +38,7 @@
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/prepwise.git
+git clone https://github.com/neelam-bind/prepwise.git
 cd prepwise
 ```
 
@@ -158,7 +158,7 @@ Feel free to use, fork, enhance, and build your own AI coaching platforms.
 
 Pull requests are welcome. If you find a bug, want a feature, or have suggestions:
 
-- Open an issue [here](https://github.com/your-username/prepwise/issues)  
+- Open an issue [here](https://github.com/neelam-bind/prepwise/issues)  
 - Submit a PR with a meaningful commit message
 
 ---
