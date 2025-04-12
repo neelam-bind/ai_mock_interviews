@@ -38,7 +38,7 @@
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/neelam-bind/prepwise.git
+git clone https://github.com/neelam-bind/ai_mock_interviews
 cd prepwise
 ```
 
@@ -52,7 +52,7 @@ npm install
 
 - Go to [Firebase Console](https://console.firebase.google.com/)
 - Create a new project
-- Enable Authentication (Email/Password or OAuth)
+- Enable Authentication (Email/Password)
 - Setup Firestore Database
 - Add your Firebase config to `.env.local`:
 
@@ -104,7 +104,6 @@ BLOCKCHAIN_CONTRACT_ADDRESS=your_contract_address
    - User can download a tamper-proof PDF version
 
 ---
-
 
 ## 🔐 Blockchain Certificate Metadata Format
 
@@ -165,5 +164,3 @@ Pull requests are welcome. If you find a bug, want a feature, or have suggestion
 ## 🌐 Live Demo
 
 > Coming soon at: [🌐 Visit PrepWise Live](https://ai-mock-interviews-mu.vercel.app)
-
-
