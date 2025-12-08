@@ -2,7 +2,7 @@
 
 **PrepWise** is a cutting-edge, AI-powered mock interview platform designed to help users prepare for interviews with personalized questions, real-time AI interaction, and blockchain-secured certification. Built with a focus on personalization, real-time experience, and tamper-proof recognition.
 
----
+
 
 ## Features
 
